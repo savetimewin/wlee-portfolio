@@ -66,7 +66,7 @@
 				min-height: 0;
 				display: grid;
 				align-content: start;
-				gap: 8px;
+				gap: 12px;
 			}
 
 
@@ -90,8 +90,8 @@
 			.zap-details {
 				margin-top: 20px;
 				color: var(--muted);
-				font-size: 11px;
-				line-height: 1.3;
+				font-size: clamp(12px, 1.15vw, 14px);
+				line-height: 1.45;
 			}
 
 			.zap-details p {
@@ -131,12 +131,13 @@
 				position: relative;
 				min-height: 0;
 				background: #000;
+				max-height: 60vh; /* keeps it large without exceeding the viewport */
 			}
 
 			.video::before {
 				content: "";
 				display: block;
-				padding-top: 56.25%; /* 16:9 */
+				padding-top: 70%; /* taller frame to reduce white space */
 			}
 
 			.video iframe {
@@ -184,7 +185,7 @@
 					<div class="zap-details" aria-label="Zap description and implementation">
 						<p>
 							<span class="label">Description:</span><br />
-							Zap is minimalist survival shooter built in Pygame: you pilot a neon pink circle in an 800×600 arena, dodge procedurally spawned squares that constantly home toward the screen center, and fire 8‑way lasers with WASD/ZQECX inputs to clear space. The game tracks how long you last, ramps spawn rate and speed as minutes pass, and offers a simple start screen plus a “Try Again?” game-over loop so you can chase longer survivals.
+							Zap is minimalist survival shooter built with Python, using the Pygame library. You pilot a neon pink circle in an 800×600 arena, dodge procedurally spawned squares that constantly come toward the screen center, and fire 8‑way lasers with WASD/ZQECX inputs to clear space. The game tracks how long you last, ramps spawn rate and speed as minutes pass, and offers a simple start screen plus a “Try Again?” game-over loop so you can chase longer survivals.
 						</p>
 						<p style="margin-top: 8px;">
 							<span class="label">Implementation:</span>
@@ -195,8 +196,19 @@
 							<li>Added player movement, 8‑way shooting, projectile/enemy updates, and collision detection for hits + death.</li>
 							<li>Created basic UI elements (start button, game-over prompt) and an on-screen survival timer.</li>
 						</ul>
-						<p class="repo-link">
-							<span class="label">Link to the Repository:</span>
+						<p style="margin-top: 12px;">
+							<span class="label">Future implementation consider for the improvement of the game:</span>
+						</p>
+						<ul>
+							<li>Add a point system where taking fewer steps to dodge awards points or less penalty — rewards efficient movement and encourages planning instead of constant strafing.</li>
+							<li>Add a center boundary area that grants more points — nudges players toward higher-risk positioning that forces sharper dodges.</li>
+							<li>Slow down the spawn rate and speed of squares and have them bounce back when hitting the edge — smooths difficulty spikes and keeps pressure without edge-stacking.</li>
+							<li>Add a leaderboard to see who had most points and longest survival time, and add your own records — gives replayability and a measurable goal for skill progression.</li>
+						</ul>
+						<p style="margin-top: 12px;">
+							<span class="label">Playable:</span><br />
+							<em>This game does not have a hosted build yet; follow the steps in the repository link below to run it locally.</em><br />
+							<span>Link to the Repository:</span>
 							<a href="https://github.com/savetimewin/zap" target="_blank" rel="noreferrer">https://github.com/savetimewin/zap</a>
 						</p>
 					</div>
