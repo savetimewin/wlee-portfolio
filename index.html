@@ -214,8 +214,59 @@
 					</div>
 				</section>
 				<section class="col" aria-label="Column two">
-					<h2>Column 2</h2>
-					<p>Skills / tools.</p>
+					<h2 class="zap-title">Magnet Bomber</h2>
+					<div class="video" aria-label="Magnet Bomber gameplay video">
+						<iframe
+							src="https://www.youtube-nocookie.com/embed/ZR_4xCYwzhk"
+							title="YouTube video player"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+							referrerpolicy="strict-origin-when-cross-origin"
+							allowfullscreen
+						></iframe>
+					</div>
+					<div class="zap-details" aria-label="Magnet Bomber description and implementation">
+						<p>
+							<span class="label">Description:</span><br />
+							Magnet Bomber is a top-down arena prototype where you weave through waves of enemies, plant bombs, and use magnetic pulls to drag threats into clustered explosions. Movement is twin-stick-like (mouse-directed motion plus A/D rotation), with a visible aim line and chamber indicator to signal bomb readiness.
+						</p>
+						<p style="margin-top: 8px;">
+							<span class="label">Implementation:</span>
+						</p>
+						<ul>
+							<li>Player controller handles mouse-directed movement, A/D rotation, cursor lock/hide, boundary clamping, a thin aim line plus chamber indicator, and bomb controls (Pull Bomb: S or Right Mouse Click; Push Bomb: W or Left Mouse Click).</li>
+							<li>Bombs support launch speed, acceleration, bounce force, timed lifetime, and explosive radius/duration, with a magnetic pull state to yank bombs or enemies into detonation zones.</li>
+							<li>Bombs use line-rendered indicators and layer-masked raycasts for targeting and collision handling.</li>
+							<li>Health and bounds systems keep the player survivable while reinforcing arena limits.</li>
+						</ul>
+						<p style="margin-top: 12px;">
+							<span class="label">Future implementation considered for the improvement of the game:</span>
+						</p>
+						<ul>
+							<li>Make bomb-pulls worth the risk by rewarding pre-detonation pulls (bonus damage, score multipliers, or cooldown refunds).</li>
+							<li>Design encounters where pulling beats dodging alone (shielded or clustered foes best cleared by magnetizing bombs).</li>
+							<li>Clarify high-value pulls with stronger visual/audio telegraphs so players see when risking a pull pays off.</li>
+							<li>Add pressure that pure dodging can’t solve (timed objectives or advancing hazards) so pulling becomes necessary.</li>
+							<li>Polish pull/launch feel—crisper beam feedback, tuned pull speed, and snappy launches to make the mechanic feel powerful.</li>
+						</ul>
+						<p style="margin-top: 12px;">
+							<span class="label">Playable:</span><br />
+							<em>Play inline below; if it doesn’t load, use the direct link.</em>
+						</p>
+						<div class="video" aria-label="Play Magnet Bomber inline">
+							<iframe
+								src="https://savetimewin.github.io/magnet-bomber/"
+								title="Play Magnet Bomber (WebGL build)"
+								loading="lazy"
+								allowfullscreen
+							></iframe>
+						</div>
+						<p>
+							<span>Link to the Repository:</span>
+							<a href="https://github.com/savetimewin/magnetbomber" target="_blank" rel="noreferrer">https://github.com/savetimewin/magnetbomber</a><br />
+							<span>Playable build:</span>
+							<a href="https://savetimewin.github.io/magnet-bomber/" target="_blank" rel="noreferrer">https://savetimewin.github.io/magnet-bomber/</a>
+						</p>
+					</div>
 				</section>
 				<section class="col" aria-label="Column three">
 					<h2>Column 3</h2>
