@@ -149,6 +149,30 @@
 				display: block;
 			}
 
+			.game-wrapper {
+				width: 100%;
+				aspect-ratio: 960 / 640;
+				position: relative;
+				overflow: hidden;
+				background: #000;
+			}
+
+			.game {
+				width: 960px;
+				height: 640px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform-origin: top left;
+			}
+
+			.game iframe {
+				width: 960px;
+				height: 640px;
+				border: 0;
+				display: block;
+			}
+
 			/* Tight screens: keep everything visible without scrolling */
 			@media (max-height: 520px) {
 				.about p {
@@ -252,13 +276,16 @@
 							<span class="label">Playable:</span><br />
 							<em>Play inline below; if it doesn’t load, use the direct link.</em>
 						</p>
-						<div class="video" aria-label="Play Magnet Bomber inline">
-							<iframe
-								src="https://savetimewin.github.io/magnet-bomber-playable/"
-								title="Play Magnet Bomber (WebGL build)"
-								loading="lazy"
-								allowfullscreen
-							></iframe>
+						<div class="game-wrapper" aria-label="Play Magnet Bomber inline">
+							<div class="game">
+								<iframe
+									src="https://savetimewin.github.io/magnet-bomber-playable/"
+									title="Play Magnet Bomber (WebGL build)"
+									loading="lazy"
+									allowfullscreen
+									scrolling="no"
+								></iframe>
+							</div>
 						</div>
 						<p>
 							<span>Link to the Repository:</span>
@@ -274,5 +301,20 @@
 				</section>
 			</section>
 		</main>
+		<script>
+			function scaleGames() {
+				document.querySelectorAll('.game-wrapper').forEach(wrapper => {
+					const game = wrapper.querySelector('.game');
+					if (game) {
+						const scale = wrapper.offsetWidth / 960;
+						game.style.transform = `scale(${scale})`;
+					}
+				});
+			}
+			window.addEventListener('resize', scaleGames);
+			window.addEventListener('load', scaleGames);
+			setTimeout(scaleGames, 100);
+			scaleGames();
+		</script>
 	</body>
 </html>
