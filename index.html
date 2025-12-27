@@ -32,16 +32,17 @@
 				min-height: 100dvh; /* stable on mobile browser UI */
 				min-height: 100vh;
 				display: grid;
-				grid-template-rows: 20vh auto; /* top ~20% of viewport, rest can scroll */
+				grid-template-rows: auto 1fr; /* about section grows with content, rest fills remaining space */
 			}
 
 			.about {
 				display: grid;
 				grid-template-columns: 1fr 1fr 1fr;
-				align-content: center;
+				align-content: start;
 				padding: clamp(16px, 3vw, 40px);
 				border-bottom: 1px solid var(--line); /* horizontal grey line */
 				gap: clamp(16px, 3vw, 40px);
+				overflow: hidden;
 			}
 
 			.about h1 {
@@ -53,6 +54,8 @@
 			.about p {
 				margin: 8px 0 0;
 				color: var(--muted);
+				word-wrap: break-word;
+				overflow-wrap: break-word;
 			}
 
 			.about-photo {
@@ -186,6 +189,20 @@
 			@media (max-height: 520px) {
 				.about p {
 					display: none;
+				}
+			}
+
+			/* Narrow screens: stack about columns vertically */
+			@media (max-width: 768px) {
+				.about {
+					grid-template-columns: 1fr;
+				}
+				.columns {
+					grid-template-columns: 1fr;
+				}
+				.col + .col {
+					border-left: none;
+					border-top: 1px solid var(--line);
 				}
 			}
 		</style>
